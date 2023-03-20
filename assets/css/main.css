@@ -200,12 +200,38 @@ input, select, textarea {
 
 	.card {
 		display: block;
-		height: 600px;
+		height: 550px;
 		margin-bottom: 10px;
+		margin-top: 10px;
 	}
 
 	.card-img-top {
-		min-height: 200px;
+		height: 200px;
+		object-fit: cover;
+	}
+
+	.card-body {
+		height: 150px;
+	}
+
+	.forSaleProductsList .card {
+		width: auto;
+		height: 660px;
+	}
+
+	.forSaleProductsList .card-img-top {
+		height: 300px;
+		object-fit: cover;
+	}
+
+	.forRentProductsList .card {
+		width: auto;
+		height: 660px;
+	}
+
+	.forRentProductsList .card-img-top {
+		height: 300px;
+		object-fit: cover;
 	}
 
 /* Container */
