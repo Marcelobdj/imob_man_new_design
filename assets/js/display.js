@@ -10,51 +10,9 @@ const openWhatsApp = () => {
   window.open('https://api.whatsapp.com/send?phone=5531996545514', '_blank');
 };
 
-const cardConstructor = () => {
 
-  const productList = data;
-
-  productList.forEach((product) => {
-    let featuredCards;
-    let allCards;
-    const cards = document.createElement('div');
-    cards.classList.add('productCard');
-    cards.innerHTML = `
-      <div class="card" style="width: 18rem;">
-        <img src="${product.img}" class="card-img-top" alt="Foto de ${product.title}">
-        <div class="card-body d-block w-100">
-          <h5 class="card-title">${product.title}</h5>
-          <p class="card-text">${product.subtitle}</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">${product.transaction}</li>
-          <li class="list-group-item">${product.type}</li>
-          <li class="list-group-item">${product.adress}</li>
-        </ul>
-        <div class="card-body">
-          <button id="${product.id}" type="button" class="btn btn-dark view-more">Ver Mais</button>
-        </div>
-      </div>
-    `;
-
-    if (product.featured === "yes"){
-      cards.classList.add('featuredCard');        
-      featuredCards = cards;
-      featuredList.appendChild(featuredCards);
-    } else if (product.featured === "yes" || product.featured === "no"){
-      allCards = cards
-      allProductsList.appendChild(allCards);
-    };
-
-  })
-
-
-};
-
-
-//DISPLAY PRODUCTS FUNCTIONS
-const displayProducts = async () => {
-  const featuredList = document.querySelector('.featuredProductsList');
+//DISPLAY ALL-PRODUCTS FUNCTIONS
+const displayAllProducts = async () => {
   const allProductsList = document.querySelector('.allProductsList');
 
   try {
@@ -69,8 +27,6 @@ const displayProducts = async () => {
       const productList = data;
 
       productList.forEach((product) => {
-        let featuredCards;
-        let allCards;
         const cards = document.createElement('div');
         cards.classList.add('productCard');
         cards.innerHTML = `
@@ -90,55 +46,81 @@ const displayProducts = async () => {
             </div>
           </div>
         `;
-
-        if (product.featured === "yes"){
-          cards.classList.add('featuredCard');        
-          featuredCards = cards;
-          featuredList.appendChild(featuredCards);
-        } else {
-          allCards = cards
-          allProductsList.appendChild(allCards);
-        };
-
+        allProductsList.appendChild(cards);
       });
 
-      const featuredFirstCard = featuredList.querySelector('.productCard');
-      const allFirstCard = allProductsList.querySelector('.productCard');
-
-      featuredFirstCard.classList.add('.visible');
-      allFirstCard.classList.add('.visible');
-      console.log(featuredFirstCard);
     };
 
     cardConstructor();
 
-    // SLIDESHOW FUNCTION
+        
 
-    const slideshow = () =>{
+    // DISPLAY MORE FUNCTION
+    const viewMoreButtons = document.querySelectorAll('.view-more');
+    viewMoreButtons.forEach((button) => {
 
-      const showNextCard = (list) => {
-        const currentCard = list.querySelector('.productCard.visible');
-        const nextCard = currentCard.nextElementSibling || list.querySelector('.productCard:first-child');
-        currentCard.classList.remove('visible');
-        nextCard.classList.add('visible');
-      };
+      button.addEventListener('click', function () {
+        let clickedButtonId = this.id;
+        let selectedProduct = data.filter(product => product.id == clickedButtonId)[0];
+        console.log(selectedProduct.title);
+        // let selectedProductUrl = `product.html?id=${selectedProduct.id}&title=${selectedProduct.title}&title=${selectedProduct.subtitle}&title=${selectedProduct.img}&transaction=${selectedProduct.transaction}&type=${selectedProduct.type}&title=${selectedProduct.featured}`;
+        // window.location.href = selectedProductUrl;
+      });
+    });
 
-      const showPrevCard = (list) => {
-        const currentCard = list.querySelector('.productCard.visible');
-        const prevCard = currentCard.previousElementSibling || list.querySelector('.productCard:last-child');
-        currentCard.classList.remove('visible');
-        prevCard.classList.add('visible');
-      };
 
-      const startSlideshow = (list) => {
-        setInterval(() => showNextCard(list), 5000);
-      };
+  } catch (error) {
+    console.error('Error:', error);
+  }
+};
+
+
+//DISPLAY FEAT-PRODUCTS FUNCTIONS
+const displayFeatProducts = async () => {
+  const featuredProductsList = document.querySelector('.featuredProductsList');
+
+  try {
+    const response = await fetch('http://localhost:3000/products');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    };
+    const data = await response.json();
+
+    const cardConstructor = () => {
+
+      const featProductList = data;
+
+      featProductList.forEach((featProduct) => {
+        if (featProduct.featured === "yes"){
+          const cards = document.createElement('div');
+          cards.classList.add('productCard');
+          cards.classList.add('featured');
+          cards.innerHTML = `
+            <div class="card" style="width: 18rem;">
+              <img src="${featProduct.img}" class="card-img-top" alt="Foto de ${featProduct.title}">
+              <div class="card-body d-block w-100">
+                <h5 class="card-title">${featProduct.title}</h5>
+                <p class="card-text">${featProduct.subtitle}</p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">${featProduct.transaction}</li>
+                <li class="list-group-item">${featProduct.type}</li>
+                <li class="list-group-item">${featProduct.adress}</li>
+              </ul>
+              <div class="card-body">
+                <button id="${featProduct.id}" type="button" class="btn btn-dark view-more">Ver Mais</button>
+              </div>
+            </div>
+          `;
+          featuredProductsList.appendChild(cards);
+        };
+      });
 
     };
-    
 
-    slideshow();
-    
+    cardConstructor();
+
+        
 
     // DISPLAY MORE FUNCTION
     const viewMoreButtons = document.querySelectorAll('.view-more');
@@ -225,14 +207,13 @@ const displaySearch = async (event) => {
 };
 
 
-
-
 //EVENTS FUNCTIONS
 const searchForm = document.querySelector('form');
 const clearButton = document.querySelector('#clearButton');
 const vemDeZap = document.querySelector('#zapzap');
 
-window.addEventListener('load', displayProducts);
+window.addEventListener('load', displayAllProducts);
+window.addEventListener('load', displayFeatProducts);
 searchForm.addEventListener('submit', displaySearch);
 clearButton.addEventListener('click', clearSearch);
 // vemDeZap.addEventListener('click', openWhatsApp);
