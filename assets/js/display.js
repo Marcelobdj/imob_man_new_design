@@ -96,7 +96,7 @@ const displayFeatProducts = async () => {
           cards.classList.add('productCard');
           cards.classList.add('featured');
           cards.innerHTML = `
-            <div class="card" style="width: 18rem;">
+            <div class="card">
               <img src="${featProduct.img}" class="card-img-top" alt="Foto de ${featProduct.title}">
               <div class="card-body d-block w-100">
                 <h5 class="card-title">${featProduct.title}</h5>
@@ -119,6 +119,62 @@ const displayFeatProducts = async () => {
     };
 
     cardConstructor();
+
+    // SLIDESHOW
+
+    const featuredSlideshow = () => {
+
+      const featSlideshow = document.querySelector(".featuredProductsList");
+      const slides = featSlideshow.querySelectorAll(".featured");
+
+      let currentImageIndex = 0;
+
+      slides[currentImageIndex].classList.add("active");
+
+      const featPrevButton = document.querySelector('.prev-btn-feat');
+      const featNextButton = document.querySelector('.next-btn-feat');
+
+      function showPreviousImage() {
+        // Remove the active class from the current image
+        slides[currentImageIndex].classList.remove("active");
+      
+        // Decrement the image index
+        currentImageIndex--;
+      
+        // If the index is less than 0, wrap around to the last image
+        if (currentImageIndex < 0) {
+          currentImageIndex = slides.length - 1;
+        }
+      
+        // Add the active class to the new image
+        slides[currentImageIndex].classList.add("active");
+      };
+
+      function showNextImage() {
+        // Remove the active class from the current image
+        slides[currentImageIndex].classList.remove("active");
+      
+        // Increment the image index
+        currentImageIndex++;
+      
+        // If the index is greater than or equal to the number of images, wrap around to the first image
+        if (currentImageIndex >= slides.length) {
+          currentImageIndex = 0;
+        }
+      
+        // Add the active class to the new image
+        slides[currentImageIndex].classList.add("active");
+        
+      };
+
+      featPrevButton.addEventListener("click", showPreviousImage);
+      featNextButton.addEventListener("click", showNextImage);
+
+      setInterval(showNextImage, 5000);
+
+    };
+
+    featuredSlideshow();
 
         
 
