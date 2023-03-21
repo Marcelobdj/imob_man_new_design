@@ -29,8 +29,9 @@ const displayAllProducts = async () => {
       productList.forEach((product) => {
         const cards = document.createElement('div');
         cards.classList.add('productCard');
+        cards.classList.add('allProducts');
         cards.innerHTML = `
-          <div class="card" style="width: 18rem;">
+          <div class="card">
             <img src="${product.img}" class="card-img-top" alt="Foto de ${product.title}">
             <div class="card-body d-block w-100">
               <h5 class="card-title">${product.title}</h5>
@@ -52,6 +53,62 @@ const displayAllProducts = async () => {
     };
 
     cardConstructor();
+
+        // SLIDESHOW
+
+        const allProductsSlideshow = () => {
+
+          const allProductsSlideshow = document.querySelector(".allProductsList");
+          const slides = allProductsSlideshow.querySelectorAll(".allProducts");
+    
+          let currentImageIndex = 0;
+    
+          slides[currentImageIndex].classList.add("active");
+    
+          const allPrevButton = document.querySelector('.prev-btn-all');
+          const allNextButton = document.querySelector('.next-btn-all');
+    
+          function showPreviousImage() {
+            // Remove the active class from the current image
+            slides[currentImageIndex].classList.remove("active");
+          
+            // Decrement the image index
+            currentImageIndex--;
+          
+            // If the index is less than 0, wrap around to the last image
+            if (currentImageIndex < 0) {
+              currentImageIndex = slides.length - 1;
+            }
+          
+            // Add the active class to the new image
+            slides[currentImageIndex].classList.add("active");
+          };
+    
+          function showNextImage() {
+            // Remove the active class from the current image
+            slides[currentImageIndex].classList.remove("active");
+          
+            // Increment the image index
+            currentImageIndex++;
+          
+            // If the index is greater than or equal to the number of images, wrap around to the first image
+            if (currentImageIndex >= slides.length) {
+              currentImageIndex = 0;
+            }
+          
+            // Add the active class to the new image
+            slides[currentImageIndex].classList.add("active");
+            
+          };
+    
+          allPrevButton.addEventListener("click", showPreviousImage);
+          allNextButton.addEventListener("click", showNextImage);
+    
+          setInterval(showNextImage, 5000);
+    
+        };
+    
+        allProductsSlideshow();
 
         
 
