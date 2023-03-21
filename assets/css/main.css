@@ -3528,3 +3528,19 @@ input, select, textarea {
 			}
 
 	}
+
+/* ADMIN */
+
+.flexItToLeft {
+	display: flex;
+	flex-direction: row;
+	justify-content: first baseline;
+}
+
+.houseForm {
+	display: none;
+}
+
+.m2Form {
+	display: none;
+}
