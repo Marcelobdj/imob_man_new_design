@@ -386,6 +386,22 @@ searchForm.addEventListener('submit', displaySearch);
 clearButton.addEventListener('click', clearSearch);
 // vemDeZap.addEventListener('click', openWhatsApp);
 
+const closedDoor = document.querySelector('.bi-door-closed');
+const openDoor = document.querySelector('.bi-door-open');
+
+
+// LOGIN
+closedDoor.addEventListener('mouseenter', () => {
+  closedDoor.style.display = 'none';
+  openDoor.style.display = 'block';
+});
+
+openDoor.addEventListener('mouseleave', () => {
+  closedDoor.style.display = 'block';
+  openDoor.style.display = 'none';
+});
+
+
 
 
 

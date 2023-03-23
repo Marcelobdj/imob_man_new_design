@@ -82,6 +82,11 @@ input, select, textarea {
 		box-sizing: inherit;
 	}
 
+	/* LOGIN */
+	#login {
+	
+	}
+
 	body {
 		background: #f7f7f7 url("images/bg01.png");
 	}
@@ -182,6 +187,15 @@ input, select, textarea {
 		font-style: italic;
 		padding: 1em 0 1em 2em;
 	}
+
+	.bi-door-open {
+		display: none;
+	}
+
+	.bi-door-closed {
+		display: block;
+	}
+
 
 	.productCard {
 		width: 100%;

@@ -51,7 +51,7 @@ const displayDB = async () => {
   
     } catch (error) {
       console.error('Error:', error);
-    }
+    };
 };
 
 window.addEventListener('load', displayDB);

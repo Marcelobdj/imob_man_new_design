@@ -184,5 +184,11 @@
       "adress": "Rua das Azaleias, 123 - Jardim das Rosas",
       "id": 8
     }
+  ],
+  "users": [
+    {
+      "user": "admin",
+      "password": "password"
+    }
   ]
 }
