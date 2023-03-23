@@ -155,11 +155,25 @@ const displayAllProducts = async () => {
     viewMoreButtons.forEach((button) => {
 
       button.addEventListener('click', function () {
+        const products = data;
         let clickedButtonId = this.id;
-        let selectedProduct = data.filter(product => product.id == clickedButtonId)[0];
-        console.log(selectedProduct.title);
-        let selectedProductUrl = `product.html?id=${selectedProduct.id}&title=${selectedProduct.title}&subTitle=${selectedProduct.subtitle}&imgs=${selectedProduct.img}&transaction=${transactionIdentifyer(product.transaction)}&type=${typeIdentifyer(product.type)}&bedrooms=${selectedProduct.featured}`;
-        window.location.href = selectedProductUrl;
+        let selectedProduct = products.filter(product => product.id == clickedButtonId)[0];
+        let newURL =  new URLSearchParams({
+          id: selectedProduct.id,
+          title: selectedProduct.title,
+          subTitle: selectedProduct.subtitle,
+          imgs: selectedProduct.img,
+          transaction: transactionIdentifyer(selectedProduct.transaction),
+          type: typeIdentifyer(selectedProduct.type),
+          bedrooms: selectedProduct.bedrooms,
+          bathrooms: selectedProduct.bathrooms,
+          m2: selectedProduct.m2,
+          price: formatAsBrazilianReal(selectedProduct.price),
+          featured: selectedProduct.featured,
+          adress: selectedProduct.adress
+        });
+        
+          window.open(`product.html?${newURL}`);
       });
     });
 
@@ -288,21 +302,32 @@ const displayFeatProducts = async () => {
 
     featuredSlideshow();
 
-        
-
-    // DISPLAY MORE FUNCTION
-    const viewMoreButtons = document.querySelectorAll('.view-more');
-    viewMoreButtons.forEach((button) => {
-
-      button.addEventListener('click', function () {
-        let clickedButtonId = this.id;
-        let selectedProduct = data.filter(product => product.id == clickedButtonId)[0];
-        console.log(selectedProduct.title);
-        // let selectedProductUrl = `product.html?id=${selectedProduct.id}&title=${selectedProduct.title}&title=${selectedProduct.subtitle}&title=${selectedProduct.img}&transaction=${selectedProduct.transaction}&type=${selectedProduct.type}&title=${selectedProduct.featured}`;
-        // window.location.href = selectedProductUrl;
-      });
-    });
-
+        // DISPLAY MORE FUNCTION
+        const viewMoreButtons = document.querySelectorAll('.view-more');
+        viewMoreButtons.forEach((button) => {
+    
+          button.addEventListener('click', function () {
+            const products = data;
+            let clickedButtonId = this.id;
+            let selectedProduct = products.filter(product => product.id == clickedButtonId)[0];
+            let newURL =  new URLSearchParams({
+              id: selectedProduct.id,
+              title: selectedProduct.title,
+              subTitle: selectedProduct.subtitle,
+              imgs: selectedProduct.img,
+              transaction: transactionIdentifyer(selectedProduct.transaction),
+              type: typeIdentifyer(selectedProduct.type),
+              bedrooms: selectedProduct.bedrooms,
+              bathrooms: selectedProduct.bathrooms,
+              m2: selectedProduct.m2,
+              price: formatAsBrazilianReal(selectedProduct.price),
+              featured: selectedProduct.featured,
+              adress: selectedProduct.adress
+            });
+            
+              window.open(`product.html?${newURL}`);
+          });
+        });
 
   } catch (error) {
     console.error('Error:', error);
