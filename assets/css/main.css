@@ -3544,3 +3544,35 @@ input, select, textarea {
 .m2Form {
 	display: none;
 }
+
+/* Styles for the highlighted URLs */
+.img-thumb {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	/* margin: 5px; */
+}
+
+.thumbnail-wrapper {
+	position: relative;
+	display: inline-block;
+	margin: 5px;
+}
+
+.close-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 20px;
+	font-weight: bolder;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	padding: 10px 10px;
+	cursor: pointer;
+	display: none;
+	border-radius: 15px;
+}
+  
+.thumbnail-wrapper:hover .close-button {
+	display: block;
+}

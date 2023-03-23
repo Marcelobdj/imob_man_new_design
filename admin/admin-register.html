@@ -38,15 +38,15 @@
 			<section class="wrapper style2">
 				<div class="container">
 
-                    <form>
+                    <form action="" method="post">
                         <div class="mb-3">
                           <label for="titleInput" class="form-label">Título do Anúncio</label>
                           <input type="text" class="form-control" id="titleInput" aria-describedby="titleHelp">
                           <div id="titleHelp" class="form-text">Título principal do anúncio</div>
                         </div>
                         <div class="mb-3">
-                          <label for="subtImput" class="form-label">Subtítulo</label>
-                          <input type="text" class="form-control" id="subtImput" aria-describedby="subtHelp">
+                          <label for="subtInput" class="form-label">Subtítulo</label>
+                          <input type="text" class="form-control" id="subtInput" aria-describedby="subtHelp">
                           <div id="subtHelp" class="form-text">Mais detalhes do imóvel, aparecerá logo abaixo do Título do Anúncio</div>
                         </div>
                         <div class="form-check form-check-inline form-switch">
@@ -92,6 +92,11 @@
                             <input type="number" class="form-control" placeholder="Número de metros quadrados" aria-label="Número de metros quadrados" aria-describedby="m2">
                             <span class="input-group-text" id="m2">m<sup>2</sup></span>
                         </div>
+                        <div class="mb-3">
+                          <label for="imgInput" class="form-label">Imagens</label>
+                          <input type="text" class="form-control" id="imgInput" aria-describedby="imgHelp">
+                          <div id="imgHelp" class="form-text">URL das imagens, separadas por vírgulas</div>
+                        </div>                        
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">R$</span>
                             <input type="number" class="form-control" placeholder="Valor sem pontos, vírgulas ou casas decimais" aria-label="Valor sem pontos, vírgulas ou casas decimais" aria-describedby="basic-addon1">
