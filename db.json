@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "title": "Walter White’s House",
+      "title": "Walter Whites House",
       "subtitle": "Private residence on public street. Please be respectful of the owners and neighbors and don't throw pizzas at the roof.",
       "img": [
         "https://na.rdcpix.com/625946635/a545dc497c1d4e1385851ca5e12f5a14w-c0rd-w832_h468_r4_q80.jpg",
@@ -16,9 +16,10 @@
         "house": false,
         "land": false
       },
-      "bedrooms": "",
-      "bathrooms": "",
-      "m2": "",
+      "bedrooms": "3",
+      "bathrooms": "2",
+      "m2": "3000",
+      "price": "700000",
       "featured": true,
       "adress": "3828 Piermont Dr NE, Albuquerque, NM 87111-3416",
       "id": 1
@@ -41,6 +42,7 @@
       "bedrooms": "8",
       "bathrooms": "6",
       "m2": "4200",
+      "price": "1200000",
       "featured": true,
       "adress": "671 Lincoln Ave, Winnetka, IL",
       "id": 2
@@ -64,6 +66,7 @@
       "bedrooms": "9",
       "bathrooms": "8",
       "m2": "5000",
+      "price": "1600000",
       "featured": true,
       "adress": "251 N Bristol Ave, Los Angeles, California",
       "id": 3
@@ -87,6 +90,7 @@
       "bedrooms": "",
       "bathrooms": "",
       "m2": "1000",
+      "price": "200000",
       "featured": false,
       "adress": "Rua das Flores, 123 - Jardim das Acácias",
       "id": 4
@@ -109,6 +113,7 @@
       "bedrooms": "",
       "bathrooms": "",
       "m2": "500",
+      "price": "600000",
       "featured": false,
       "adress": "Rua dos Ipês, 321 - Condomínio Villa do Sol",
       "id": 5
@@ -132,6 +137,7 @@
       "bedrooms": "3",
       "bathrooms": "4",
       "m2": "300",
+      "price": "400000",
       "featured": false,
       "adress": "Rua das Margaridas, 789 - Jardim das Flores",
       "id": 6
@@ -155,6 +161,7 @@
       "bedrooms": "4",
       "bathrooms": "5",
       "m2": "500",
+      "price": "2500000",
       "featured": false,
       "adress": "Rua das Orquídeas, 456 - Condomínio Alphaville",
       "id": 7
@@ -177,6 +184,7 @@
       "bedrooms": "1",
       "bathrooms": "1",
       "m2": "50",
+      "price": "1500",
       "featured": false,
       "adress": "Rua das Violetas, 321 - Jardim das Flores",
       "id": 8
@@ -199,6 +207,7 @@
       "bedrooms": "2",
       "bathrooms": "1",
       "m2": "70",
+      "price": "2500",
       "featured": false,
       "adress": "Rua das Azaleias, 123 - Jardim das Rosas",
       "id": 9

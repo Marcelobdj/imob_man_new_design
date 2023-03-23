@@ -78,6 +78,7 @@ const submitForm = async (event) => {
   const bedrooms = document.querySelector('#inputBedrooms').value;
   const bathrooms = document.querySelector('#inputBathrooms').value;
   const m2 = document.querySelector('#m2Input').value;
+  const price = document.querySelector('#priceInput').value;
   const featured = document.querySelector('#featured').checked;
   const adress = document.querySelector('#addressInput').value;
 
@@ -96,6 +97,7 @@ const submitForm = async (event) => {
     bedrooms,
     bathrooms,
     m2,
+    price,
     featured,
     adress
   };
