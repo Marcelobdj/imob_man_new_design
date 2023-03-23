@@ -213,7 +213,7 @@ input, select, textarea {
 	}
 
 	.card-body {
-		height: 100px;
+		height: 150px;
 	}
 
 	.forSaleProductsList .card {
@@ -221,25 +221,24 @@ input, select, textarea {
 		height: 660px;
 	}
 
-	.forSaleProductsList .card-img-top {
+	/* .forSaleProductsList .card-img-top {
 		height: 300px;
 		object-fit: cover;
-	}
+	} */
 
 	.forRentProductsList .card {
 		width: auto;
 		height: 660px;
 	}
 
-	.forRentProductsList .card-img-top {
+	/* .forRentProductsList .card-img-top {
 		height: 300px;
 		object-fit: cover;
-	}
-
+	} */
 
 	/* SLIDESHOW */
 	.featuredProductsList {
-		height: 530px;
+		/* height: 530px; */
 		width: 100%;
 		overflow: hidden;
 		position: relative;
@@ -262,7 +261,7 @@ input, select, textarea {
 	}
 
 	.allProductsList {
-		height: 550px;
+		/* height: 550px; */
 		width: 100%;
 		overflow: hidden;
 		position: relative;
@@ -318,6 +317,80 @@ input, select, textarea {
 		border: #37c0fb 1px solid;
 	}
 
+	@media screen and (min-width: 480px) {
+
+		.featuredProductsList {
+			height: 700px;
+		}
+
+		.allProductsList {
+			height: 700px;
+
+		}
+
+		.card {
+			height: 650px;
+		}
+
+		.card-img-top {
+			min-height: 300px;
+		}
+
+		.card-body {
+			height: 100px;
+		}
+
+	}
+
+	@media screen and (min-width: 736px) {
+
+		.featuredProductsList {
+			height: 850px;
+		}
+
+		.allProductsList {
+			height: 850px;
+
+		}
+
+		.card {
+			height: 800px;
+		}
+
+		.card-img-top {
+			min-height: 400px;
+		}
+
+		.card-body {
+			height: 150px;
+		}
+
+	}
+
+	@media screen and (min-width: 1280px) {
+
+		.featuredProductsList {
+			height: 1000px;
+		}
+
+		.allProductsList {
+			height: 1000px;
+
+		}
+
+		.card {
+			height: 950px;
+		}
+
+		.card-img-top {
+			min-height: 500px;
+		}
+
+		.card-body {
+			height: 150px;
+		}
+
+	}
 
 
 /* Container */

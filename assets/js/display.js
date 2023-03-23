@@ -10,6 +10,26 @@ const openWhatsApp = () => {
   window.open('https://api.whatsapp.com/send?phone=5531996545514', '_blank');
 };
 
+const transactionIdentifyer = (ProductTransaction) => {
+  if (ProductTransaction.selling && !ProductTransaction.renting) {
+    return "A Venda";
+  } else if (!ProductTransaction.selling && ProductTransaction.renting) {
+    return "Para Locação";
+  } else if (ProductTransaction.selling && ProductTransaction.renting) {
+    return "Para Locação ou Venda";
+  } else {
+    return "Não disponível";
+  }
+};
+
+const typeIdentifyer = (productType) => {
+  return productType.house ? "Casa" : "Terreno";
+};
+
+const formatAsBrazilianReal = (number) => {
+  return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(number).replace(",00", "");
+};
+
 
 //DISPLAY ALL-PRODUCTS FUNCTIONS
 const displayAllProducts = async () => {
@@ -31,21 +51,22 @@ const displayAllProducts = async () => {
         cards.classList.add('productCard');
         cards.classList.add('allProducts');
         cards.innerHTML = `
-          <div class="card">
-            <img src="${product.img}" class="card-img-top" alt="Foto de ${product.title}">
-            <div class="card-body d-block w-100">
-              <h5 class="card-title">${product.title}</h5>
-              <p class="card-text">${product.subtitle}</p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">${product.transaction}</li>
-              <li class="list-group-item">${product.type}</li>
-              <li class="list-group-item">${product.adress}</li>
-            </ul>
-            <div class="card-body">
-              <button id="${product.id}" type="button" class="btn btn-dark view-more">Ver Mais</button>
-            </div>
-          </div>
+        <div class="card">
+        <img src="${product.img[0]}" class="card-img-top" alt="Foto de ${product.title}">
+        <div class="card-body d-block w-100">
+          <h5 class="card-title">${product.title}</h5>
+          <p class="card-text">${product.subtitle}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">${transactionIdentifyer(product.transaction)}</li>
+          <li class="list-group-item">${typeIdentifyer(product.type)}</li>
+          <li class="list-group-item">${product.adress}</li>
+          <li class="list-group-item">${formatAsBrazilianReal(product.price)}</li>
+        </ul>
+        <div class="card-body">
+          <button id="${product.id}" type="button" class="btn btn-dark view-more">Ver Mais</button>
+        </div>
+      </div>
         `;
         allProductsList.appendChild(cards);
       });
@@ -148,21 +169,22 @@ const displayFeatProducts = async () => {
       const featProductList = data;
 
       featProductList.forEach((featProduct) => {
-        if (featProduct.featured === "yes"){
+        if (featProduct.featured === true){
           const cards = document.createElement('div');
           cards.classList.add('productCard');
           cards.classList.add('featured');
           cards.innerHTML = `
             <div class="card">
-              <img src="${featProduct.img}" class="card-img-top" alt="Foto de ${featProduct.title}">
+              <img src="${featProduct.img[0]}" class="card-img-top" alt="Foto de ${featProduct.title}">
               <div class="card-body d-block w-100">
                 <h5 class="card-title">${featProduct.title}</h5>
                 <p class="card-text">${featProduct.subtitle}</p>
               </div>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">${featProduct.transaction}</li>
-                <li class="list-group-item">${featProduct.type}</li>
+                <li class="list-group-item">${transactionIdentifyer(featProduct.transaction)}</li>
+                <li class="list-group-item">${typeIdentifyer(featProduct.type)}</li>
                 <li class="list-group-item">${featProduct.adress}</li>
+                <li class="list-group-item">${formatAsBrazilianReal(featProduct.price)}</li>
               </ul>
               <div class="card-body">
                 <button id="${featProduct.id}" type="button" class="btn btn-dark view-more">Ver Mais</button>
