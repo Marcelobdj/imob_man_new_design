@@ -3553,13 +3553,13 @@ input, select, textarea {
 	/* margin: 5px; */
 }
 
-.thumbnail-wrapper {
+.thumb-wrapper {
 	position: relative;
 	display: inline-block;
 	margin: 5px;
 }
 
-.close-button {
+.delete-btn {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -3573,6 +3573,6 @@ input, select, textarea {
 	border-radius: 15px;
 }
   
-.thumbnail-wrapper:hover .close-button {
+.thumb-wrapper:hover .delete-btn {
 	display: block;
 }

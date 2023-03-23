@@ -17,79 +17,59 @@ const displayAdditionalForm = (event) => {
       m2Form.style.display = 'none';
     }
 };
-
 const propertyTypeSelect = document.querySelector('.form-select');
 propertyTypeSelect.addEventListener('change', displayAdditionalForm);
 
 //CREATE THUMB FOR EACH URL--------------------------------------
-function displayURLthumb() {
-  const input = document.getElementById('imgInput');
-  const imgHelp = document.getElementById('imgHelp');
-
-  let productURLs = [];
+const displayURLthumb = () => {
+  const input = document.querySelector('#imgInput');
+  const thumbsContainer = document.querySelector('#imgThumbs');
 
   input.addEventListener('input', (e) => {
-    const inputValue = e.target.value;
-    const lastChar = inputValue.slice(-1);
+    if (e.data === ',') {
+      const urls = input.value.split(',').map(url => url.trim()).filter(url => url !== '');
+      const lastUrl = urls[urls.length - 1];
 
-    if (lastChar === ',') {
-      const url = inputValue.slice(0, -1).trim();
+      if (lastUrl) {
+        // Create thumbnail
+        const thumb = document.createElement('img');
+        thumb.src = lastUrl;
+        thumb.classList.add('img-thumb');
 
-      if (url.length > 0 && !url.endsWith(',')) {
-        productURLs.push(url);
-        input.value = '';
+        // Create delete button
+        const deleteBtn = document.createElement('span');
+        deleteBtn.innerHTML = '&times;';
+        deleteBtn.classList.add('delete-btn');
+        deleteBtn.onclick = () => {
+          const index = urls.indexOf(lastUrl);
+          if (index > -1) {
+            urls.splice(index, 1);
+          };
+          input.value = urls.join(', ');
+          thumb.remove();
+        };
 
-        const imgThumbs = document.getElementById('imgThumbs') || createImgThumbsDiv(imgHelp);
-
-        const thumbnail = createThumbnail(url, productURLs);
-        imgThumbs.appendChild(thumbnail);
-      }
-    }
+        // Append elements to the container
+        const div = document.createElement('div');
+        div.classList.add('thumb-wrapper');
+        div.appendChild(thumb);
+        div.appendChild(deleteBtn);
+        thumbsContainer.appendChild(div);
+      };
+    };
   });
-}
-
-function createImgThumbsDiv(imgHelp) {
-  const imgThumbs = document.createElement('div');
-  imgThumbs.id = 'imgThumbs';
-  imgHelp.parentNode.insertBefore(imgThumbs, imgHelp.nextSibling);
-  return imgThumbs;
-}
-
-function createThumbnail(url, productURLs) {
-  const thumbnailWrapper = document.createElement('div');
-  thumbnailWrapper.classList.add('thumbnail-wrapper');
-
-  const thumbnail = document.createElement('img');
-  thumbnail.src = url;
-  thumbnail.classList.add('img-thumb');
-  thumbnailWrapper.appendChild(thumbnail);
-
-  const closeButton = document.createElement('span');
-  closeButton.classList.add('close-button');
-  closeButton.innerHTML = '&times;';
-  closeButton.addEventListener('click', () => {
-    thumbnailWrapper.remove();
-    const index = productURLs.indexOf(url);
-    if (index > -1) {
-      productURLs.splice(index, 1);
-    }
-  });
-  thumbnailWrapper.appendChild(closeButton);
-
-  return thumbnailWrapper;
-}
-
-displayURLthumb();
+};
+window.addEventListener('load', displayURLthumb);
 
 //POST FORM------------------------------------------------------
 const form = document.querySelector('form');
-
 const submitForm = async (event) => {
   event.preventDefault();
 
   const title = document.querySelector('#titleInput').value;
   const subtitle = document.querySelector('#subtInput').value;
-  const img = document.querySelectorAll('.img-thumb').value;
+  const imgInput = document.querySelector('#imgInput');
+  const img = imgInput.value.split(',').map(url => url.trim()).filter(url => url !== '');
   const sellCheck = document.querySelector('#sellCheck').checked;
   const rentCheck = document.querySelector('#rentCheck').checked;
   const typeSelect = document.querySelector('#typeInput');
@@ -139,5 +119,4 @@ const submitForm = async (event) => {
     alert(error);
   }
 };
-
 form.addEventListener('submit', submitForm);
