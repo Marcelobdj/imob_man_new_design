@@ -1,6 +1,6 @@
 'use strict';
 
-// DISPLAY ADDITIONAL INFO IN THE FORM {
+//DISPLAY ADDITIONAL INFO IN THE FORM----------------------------
 const displayAdditionalForm = (event) => {
     const selectedOption = event.target.value;
     const houseForm = document.querySelector('.houseForm');
@@ -19,12 +19,9 @@ const displayAdditionalForm = (event) => {
 };
 
 const propertyTypeSelect = document.querySelector('.form-select');
-
 propertyTypeSelect.addEventListener('change', displayAdditionalForm);
-// -------------------------------------}
 
-// CREATE THUMB FOR EACH URL{
-
+//CREATE THUMB FOR EACH URL--------------------------------------
 function displayURLthumb() {
   const input = document.getElementById('imgInput');
   const imgHelp = document.getElementById('imgHelp');
@@ -82,9 +79,65 @@ function createThumbnail(url, productURLs) {
   return thumbnailWrapper;
 }
 
-// Call the function
 displayURLthumb();
 
+//POST FORM------------------------------------------------------
+const form = document.querySelector('form');
 
+const submitForm = async (event) => {
+  event.preventDefault();
 
-// -------------------------------------}
+  const title = document.querySelector('#titleInput').value;
+  const subtitle = document.querySelector('#subtInput').value;
+  const img = document.querySelectorAll('.img-thumb').value;
+  const sellCheck = document.querySelector('#sellCheck').checked;
+  const rentCheck = document.querySelector('#rentCheck').checked;
+  const typeSelect = document.querySelector('#typeInput');
+  const houseSelected = typeSelect.value === '1';
+  const landSelected = typeSelect.value === '2';
+  const bedrooms = document.querySelector('#inputBedrooms').value;
+  const bathrooms = document.querySelector('#inputBathrooms').value;
+  const m2 = document.querySelector('#m2Input').value;
+  const featured = document.querySelector('#featured').checked;
+  const adress = document.querySelector('#addressInput').value;
+
+  const data = {
+    title,
+    subtitle,
+    img,
+    transaction: {
+      selling: sellCheck,
+      renting: rentCheck
+    },
+    type: {
+      house: houseSelected,
+      land: landSelected
+    },
+    bedrooms,
+    bathrooms,
+    m2,
+    featured,
+    adress
+  };
+
+  try {
+    const response = await fetch('http://localhost:3000/products', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    await response.json();
+    alert('Produto cadastrado com sucesso!');
+  } catch (error) {
+    alert(error);
+  }
+};
+
+form.addEventListener('submit', submitForm);

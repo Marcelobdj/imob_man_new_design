@@ -69,6 +69,24 @@
       "adress": "Rua Chris",
       "featured": "yes",
       "id": 7
+    },
+    {
+      "title": "Título principal do anúncio",
+      "subtitle": "Mais detalhes do imóvel, aparecerá logo abaixo do Título do Anúncio",
+      "transaction": {
+        "selling": true,
+        "renting": true
+      },
+      "type": {
+        "house": true,
+        "land": false
+      },
+      "bedrooms": "2",
+      "bathrooms": "3",
+      "m2": "432423",
+      "featured": true,
+      "adress": "Endereço completo do imóvel (Rua, número - Bairro, Cidade)",
+      "id": 8
     }
   ]
 }
