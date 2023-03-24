@@ -223,7 +223,7 @@ const displayFeatProducts = async () => {
           cards.innerHTML = `
             <div class="card">
               <img src="${featProduct.img[0]}" class="card-img-top" alt="Foto de ${featProduct.title}">
-              <div class="card-body d-block w-100">
+              <div class="card-body d-block">
                 <h5 class="card-title">${featProduct.title}</h5>
                 <p class="card-text">${featProduct.subtitle}</p>
               </div>

@@ -72,6 +72,15 @@ input, select, textarea {
 	appearance: none;
 }
 
+/* #carouselImgs {
+	height: 10px;
+} */
+
+.carousel-item img {
+	width: 100%;
+	height: auto;
+}
+
 /* Basic */
 
 	html {
@@ -199,7 +208,7 @@ input, select, textarea {
 
 	.productCard {
 		width: 100%;
-		height: auto;
+		/* height: auto; */
 		transition: opacity 0.5s ease-in-out;
 	}
 
@@ -213,46 +222,40 @@ input, select, textarea {
 	} */
 
 	.card {
-		display: block;
+		/* display: block; */
 		margin: auto;
-		/* height: 500px; */
+		height: 600px;
 		margin-bottom: 10px;
 		margin-top: 10px;
+		/* max-width: 600px; */
 	}
 
 	
 	.card-img-top {
-		height: 200px;
+		height: 250px;
 		object-fit: cover;
 	}
 
 	.card-body {
-		height: 150px;
+		height: 50px;
+		display: flex;
+		align-items: center;
 	}
 
-	.forSaleProductsList .card {
-		width: auto;
-		height: 660px;
-	}
-
-	/* .forSaleProductsList .card-img-top {
-		height: 300px;
-		object-fit: cover;
+	/* .card-text {
+		height: 100px;
 	} */
 
-	.forRentProductsList .card {
-		width: auto;
-		height: 660px;
+	.list-group-item {
+		display: flex;
+		align-items: center;
+		height: 50px
 	}
 
-	/* .forRentProductsList .card-img-top {
-		height: 300px;
-		object-fit: cover;
-	} */
 
 	/* SLIDESHOW */
 	.featuredProductsList {
-		/* height: 530px; */
+		height: 610px;
 		width: 100%;
 		overflow: hidden;
 		position: relative;
@@ -275,7 +278,7 @@ input, select, textarea {
 	}
 
 	.allProductsList {
-		/* height: 550px; */
+		height: 610px;
 		width: 100%;
 		overflow: hidden;
 		position: relative;
@@ -334,24 +337,24 @@ input, select, textarea {
 	@media screen and (min-width: 480px) {
 
 		.featuredProductsList {
-			height: 700px;
+			height: 610px;
 		}
 
 		.allProductsList {
-			height: 700px;
+			height: 610px;
 
 		}
 
 		.card {
-			height: 650px;
+			height: 600px;
 		}
 
 		.card-img-top {
-			min-height: 300px;
+			height: 200px;
 		}
 
 		.card-body {
-			height: 100px;
+			height: 30px;
 		}
 
 	}
@@ -359,53 +362,88 @@ input, select, textarea {
 	@media screen and (min-width: 736px) {
 
 		.featuredProductsList {
-			height: 850px;
+			height: 710px;
 		}
 
 		.allProductsList {
-			height: 850px;
+			height: 710px;
 
 		}
 
 		.card {
-			height: 800px;
+			height: 700px;
 		}
 
 		.card-img-top {
-			min-height: 400px;
+			height: 300px;
 		}
 
 		.card-body {
-			height: 150px;
+			height: 60px;
+		}
+
+		.slideButtons {
+			margin: auto;
+			width: 300px;
 		}
 
 	}
 
-	@media screen and (min-width: 1280px) {
-
+	@media screen and (min-width: 840px) {
 		.featuredProductsList {
-			height: 1000px;
+			height: 760px;
 		}
 
 		.allProductsList {
-			height: 1000px;
+			height: 760px;
 
 		}
 
 		.card {
-			height: 950px;
+			height: 750px;
 		}
 
 		.card-img-top {
-			min-height: 500px;
+			height: 300px;
 		}
 
 		.card-body {
-			height: 150px;
+			height: 60px;
 		}
 
+		.slideButtons {
+			margin: auto;
+			width: 300px;
+		}
 	}
 
+	@media screen and (min-width: 980px) {
+		.featuredProductsList {
+			height: 790px;
+		}
+
+		.allProductsList {
+			height: 790px;
+
+		}
+
+		.card {
+			height: 780px;
+		}
+
+		.card-img-top {
+			height: 350px;
+		}
+
+		.card-body {
+			height: 60px;
+		}
+
+		.slideButtons {
+			margin: auto;
+			width: 300px;
+		}
+	}
 
 /* Container */
 
@@ -2910,7 +2948,7 @@ input, select, textarea {
 /* Banner */
 
 	#banner {
-		background-image: url("../../images/banner.jpg");
+		background-image: url("../../images/banner-1.webp");
 		background-position: center center;
 		background-size: cover;
 		height: 28em;
@@ -3082,7 +3120,7 @@ input, select, textarea {
 		/* Banner */
 
 			#banner {
-				height: 24em;
+				height: 30em;
 			}
 
 	}
@@ -3127,7 +3165,7 @@ input, select, textarea {
 		/* Banner */
 
 			#banner {
-				height: 20em;
+				height: 30em;
 			}
 
 		/* Wrapper */
@@ -3239,7 +3277,7 @@ input, select, textarea {
 		/* Banner */
 
 			#banner {
-				height: 20em;
+				height: 40em;
 			}
 
 				#banner header h2 {
@@ -3532,7 +3570,7 @@ input, select, textarea {
 		/* Banner */
 
 			#banner {
-				height: 18em;
+				height: 40em;
 			}
 
 		/* Wrapper */
@@ -3588,7 +3626,7 @@ input, select, textarea {
 		/* Banner */
 
 			#banner {
-				height: 20em;
+				height: 40em;
 			}
 
 				#banner header {
