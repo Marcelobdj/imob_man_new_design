@@ -337,12 +337,12 @@ input, select, textarea {
 		margin: auto;
 		/* width: 100%; */
 		/* height: 100%; */
-		opacity: 0;
-  		transition: opacity 1s ease-in-out;
+		display: none;
+  		transition: display 1s ease-in-out;
 	}
 
 	.featured.active {
-		opacity: 1;
+		display: block;
 	}
 
 	.allProductsList {
@@ -360,12 +360,12 @@ input, select, textarea {
 		margin: auto;
 		/* width: 100%; */
 		/* height: 100%; */
-		opacity: 0;
-  		transition: opacity 1s ease-in-out;
+		display: none;
+		transition: display 1s ease-in-out;
 	}
 
 	.allProducts.active {
-		opacity: 1;
+		display: block;
 	}
 
 	.slideButtons {
@@ -400,6 +400,20 @@ input, select, textarea {
 		background-color: white;
 		color: #37c0fb;
 		border: #37c0fb 1px solid;
+	}
+
+	.productImgs {
+		height: 310px;
+		width: 100%;
+		overflow: hidden;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.productImgs {
+		height: 200px;
 	}
 
 	@media screen and (min-width: 480px) {
@@ -455,6 +469,14 @@ input, select, textarea {
 			width: 300px;
 		}
 
+		.productImgs {
+			height: 400px;
+		}
+
+		.productImgs {
+			height: 410px;
+		}
+
 	}
 
 	@media screen and (min-width: 840px) {
@@ -483,6 +505,15 @@ input, select, textarea {
 			margin: auto;
 			width: 300px;
 		}
+
+		.productImgs {
+			height: 500px;
+		}
+
+		.productImgs {
+			height: 510px;
+		}
+
 	}
 
 	@media screen and (min-width: 980px) {
@@ -510,6 +541,10 @@ input, select, textarea {
 		.slideButtons {
 			margin: auto;
 			width: 300px;
+		}
+
+		.productImgs {
+			height: 700px;
 		}
 	}
 
