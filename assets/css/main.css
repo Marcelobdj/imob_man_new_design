@@ -72,14 +72,82 @@ input, select, textarea {
 	appearance: none;
 }
 
-/* #carouselImgs {
-	height: 10px;
-} */
-
-.carousel-item img {
+.productImgs {
+	margin-top: 15px;
+	height: 200px;
 	width: 100%;
-	height: auto;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
+
+.productImgURL {
+	position: absolute;
+	margin: auto;
+	opacity: 0;
+	transition: opacity 1s ease-in-out;
+}
+
+.productImgURL.active {
+	opacity: 1;
+}
+
+.productImgs img{
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+}
+
+.list-group-item {
+	width: 100%;
+}
+
+@media screen and (min-width: 736px) {
+	.productImgs {
+		height: 400px;
+	}
+
+	.productImgs img{
+		height: 400px;
+		object-fit: cover;
+	}
+}
+
+@media screen and (min-width: 840px) {
+	.productImgs {
+		height: 500px;
+	}
+
+	.productImgs img{
+		height: 500px;
+		object-fit: cover;
+	}
+}
+
+@media screen and (min-width: 980px) {
+	.productImgs {
+		height: 700px;
+	}
+
+	.productImgs img{
+		height: 700px;
+		object-fit: cover;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.productImgs {
+		height: 700px;
+	}
+
+	.productImgs img{
+		height: 700px;
+		object-fit: cover;
+	}
+}
+
 
 /* Basic */
 

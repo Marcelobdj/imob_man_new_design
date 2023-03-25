@@ -157,7 +157,7 @@ const displayAllProducts = async () => {
       button.addEventListener('click', function () {
         const products = data;
         let clickedButtonId = this.id;
-        let selectedProduct = products.filter(product => product.id == clickedButtonId)[0];
+        let selectedProduct = products.filter(product => product.id === clickedButtonId)[0];
         let newURL =  new URLSearchParams({
           id: selectedProduct.id,
           title: selectedProduct.title,
@@ -173,7 +173,8 @@ const displayAllProducts = async () => {
           adress: selectedProduct.adress
         });
         
-          window.open(`product.html?${newURL}`);
+          // window.open(`product.html?${newURL}`);
+          console.log(newURL);
       });
     });
 
