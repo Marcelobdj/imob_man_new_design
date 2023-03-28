@@ -18,6 +18,10 @@ const transactionIdentifyer = (product) => {
 };
 
 const typeIdentifyer = (product) => {
+    if (!product.type) {
+        console.error("Invalid product type:", product);
+        return "Desconhecido";
+    }
     return product.type.house ? "Casa" : "Terreno";
 };
 
@@ -96,7 +100,7 @@ const createProductCard = (product, products) => {
 };
 
 const fetchProducts = async () => {
-    const response = await fetch('http://localhost:3000/products');
+    const response = await fetch('http://localhost:3001/imob_man/products');
     if (!response.ok) {
         throw new Error('Network response was not ok');
     }
