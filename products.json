@@ -1,0 +1,157 @@
+[
+    {
+        "title": "The Home Alone House Edited",
+        "subtitle": "The McCallister house from Home Alone is one of the most iconic movie houses of all time. Although most of the interior shots were done on a soundstage — they didnt actually light Marvs head on fire in the kitchen — all of the exterior shots were completed on location.",
+        "adress": "671 Lincoln Ave, Winnetka, IL",
+        "transaction": {
+            "selling": true,
+            "renting": true
+        },
+        "type": {
+            "house": true,
+            "land": false
+        },
+        "bedrooms": "8",
+        "bathrooms": "8",
+        "m2": "4200",
+        "img": "https://images2.imgbox.com/7e/d9/f5YSKsE1_o.png,https://images2.imgbox.com/f8/89/gn1KLwhu_o.png",
+        "price": "1200000",
+        "featured": true,
+        "id": 2
+    },
+    {
+        "title": "The Fresh Prince of Bel Air House",
+        "subtitle": "The Fresh Prince of Bel Air house is privately owned and hasnt been on the market since 1978 (where it was last sold for just $723,000!)",
+        "img": [
+            "https://images2.imgbox.com/79/c1/xaCFiA3N_o.png",
+            "https://images2.imgbox.com/f1/bc/Kdqg6uNW_o.png"
+        ],
+        "transaction": {
+            "selling": true,
+            "renting": false
+        },
+        "type": {
+            "house": true,
+            "land": false
+        },
+        "bedrooms": "9",
+        "bathrooms": "8",
+        "m2": "5000",
+        "price": "1600000",
+        "featured": true,
+        "adress": "251 N Bristol Ave, Los Angeles, California",
+        "id": 3
+    },
+    {
+        "title": "oi neus",
+        "subtitle": "A oportunidade de construir a casa dos seus sonhos",
+        "adress": "Rua das Flores, 123 - Jardim das Acácias",
+        "transaction": {
+            "selling": true,
+            "renting": false
+        },
+        "type": {
+            "house": false,
+            "land": true
+        },
+        "bedrooms": "",
+        "bathrooms": "",
+        "m2": "1000",
+        "img": "https://images2.imgbox.com/22/6f/QTwvC8Kz_o.png,https://images2.imgbox.com/9f/b7/xUsifTxP_o.png",
+        "price": "200000",
+        "featured": false,
+        "id": 4
+    },
+    {
+        "title": "Terreno em condomínio fechado",
+        "subtitle": "Conforto, segurança e privacidade em um só lugar",
+        "img": [
+            "https://images2.imgbox.com/48/fd/vaUhPdx1_o.png",
+            "https://images2.imgbox.com/d2/37/6L2reRrQ_o.png"
+        ],
+        "transaction": {
+            "selling": true,
+            "renting": false
+        },
+        "type": {
+            "house": false,
+            "land": true
+        },
+        "bedrooms": "",
+        "bathrooms": "",
+        "m2": "500",
+        "price": "600000",
+        "featured": false,
+        "adress": "Rua dos Ipês, 321 - Condomínio Villa do Sol",
+        "id": 5
+    },
+    {
+        "title": "Casa com piscina em bairro tranquilo",
+        "subtitle": "Perfeita para famílias que buscam conforto e lazer",
+        "img": [
+            "https://images2.imgbox.com/aa/78/k7oyQLae_o.png",
+            "https://images2.imgbox.com/df/19/LHbQA6nW_o.png"
+        ],
+        "transaction": {
+            "selling": true,
+            "renting": false
+        },
+        "type": {
+            "house": true,
+            "land": false
+        },
+        "bedrooms": "3",
+        "bathrooms": "4",
+        "m2": "300",
+        "price": "400000",
+        "featured": false,
+        "adress": "Rua das Margaridas, 789 - Jardim das Flores",
+        "id": 6
+    },
+    {
+        "title": "Casa aconchegante em bairro tranquilo",
+        "subtitle": "Ideal para casais ou solteiros que buscam sossego e conforto",
+        "img": [
+            "https://images2.imgbox.com/d9/a7/ISpiv635_o.png",
+            "https://images2.imgbox.com/31/b1/6dVNK7hW_o.png"
+        ],
+        "transaction": {
+            "selling": false,
+            "renting": true
+        },
+        "type": {
+            "house": true,
+            "land": false
+        },
+        "bedrooms": "1",
+        "bathrooms": "1",
+        "m2": "50",
+        "price": "1500",
+        "featured": false,
+        "adress": "Rua das Violetas, 321 - Jardim das Flores",
+        "id": 7
+    },
+    {
+        "title": "Casa mobiliada em bairro residencial",
+        "subtitle": "Conforto e praticidade em um só lugar",
+        "img": [
+            "https://images2.imgbox.com/50/f4/6IOjDLGG_o.png",
+            "https://images2.imgbox.com/c8/e7/EYk1XOzM_o.png"
+        ],
+        "transaction": {
+            "selling": false,
+            "renting": true
+        },
+        "type": {
+            "house": true,
+            "land": false
+        },
+        "bedrooms": "2",
+        "bathrooms": "1",
+        "m2": "70",
+        "price": "2500",
+        "featured": false,
+        "adress": "Rua das Azaleias, 123 - Jardim das Rosas",
+        "id": 8
+    }
+]

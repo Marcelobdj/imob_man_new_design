@@ -9,9 +9,8 @@
         "renting": true
       },
       "type": {
-        "0": {},
-        "1": {},
-        "2": {}
+        "house": true,
+        "land": false
       },
       "bedrooms": "8",
       "bathrooms": "8",
@@ -53,9 +52,8 @@
         "renting": false
       },
       "type": {
-        "0": {},
-        "1": {},
-        "2": {}
+        "house": false,
+        "land": true
       },
       "bedrooms": "",
       "bathrooms": "",
