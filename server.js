@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 
 app.use(cors());
-
+app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const uri = 'mongodb://localhost:27017/imob_man';
@@ -20,10 +20,6 @@ db.once('open', () => {
 });
 
 const PORT = process.env.PORT || 3001;
-
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
 
 const productSchema = new mongoose.Schema({
     title: String,
@@ -72,4 +68,49 @@ app.get('/imob_man/users', async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
+});
+
+// Create new product
+app.post('/imob_man/products', async (req, res) => {
+    try {
+        const newProduct = new Product(req.body);
+        await newProduct.save();
+        res.status(201).json(newProduct);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+});
+
+// Update a product
+app.patch('/imob_man/products/:id', async (req, res) => {
+    try {
+        const product = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
+
+        if (!product) {
+            return res.status(404).send();
+        }
+
+        res.send(product);
+    } catch (e) {
+        res.status(400).send(e);
+    }
+});
+
+// Delete a product
+app.delete('/imob_man/products/:id', async (req, res) => {
+    try {
+        const product = await Product.findByIdAndDelete(req.params.id);
+
+        if (!product) {
+            return res.status(404).send();
+        }
+
+        res.send(product);
+    } catch (e) {
+        res.status(500).send();
+    }
+});
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });

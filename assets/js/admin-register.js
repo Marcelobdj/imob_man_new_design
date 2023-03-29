@@ -103,7 +103,7 @@ const submitForm = async (event) => {
   };
 
   try {
-    const response = await fetch('http://localhost:3000/products', {
+    const response = await fetch('http://localhost:3001/imob_man/products', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
