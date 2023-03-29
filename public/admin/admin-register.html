@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Imóveis Manduri | Admin</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+
+<body class="is-preload">
+  <div id="page-wrapper">
+
+    <!-- Header -->
+    <div id="header">
+
+      <!-- Logo -->
+      <h1 id="logo"><em>Imóveis</em>Manduri<em>_admin</em></h1>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul>
+          <li><a href="admin.html">Anúncios Cadastrados</a></li>
+          </li>
+          <li class="current"><a href="admin-register.html">Publicar Anúncio</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <!-- Banner -->
+    <section id="bannerAdmin">
+      <header>
+        <h2><em>Painel </em>de controle</em></h2>
+        <a href="../index.html" class="button">Voltar para o site Principal</a>
+      </header>
+    </section>
+
+    <section class="wrapper style2">
+      <div class="container">
+
+        <form action="" method="post">
+          <div class="mb-3">
+            <label for="titleInput" class="form-label">Título do Anúncio</label>
+            <input type="text" class="form-control" id="titleInput" aria-describedby="titleHelp">
+            <div id="titleHelp" class="form-text">Título principal do anúncio</div>
+          </div>
+          <div class="mb-3">
+            <label for="subtInput" class="form-label">Subtítulo</label>
+            <input type="text" class="form-control" id="subtInput" aria-describedby="subtHelp">
+            <div id="subtHelp" class="form-text">Mais detalhes do imóvel, aparecerá logo abaixo do Título do Anúncio
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="addressInput" class="form-label">Endereço</label>
+            <input type="text" class="form-control" id="addressInput" aria-describedby="addresstHelp">
+            <div id="addressHelp" class="form-text">Endereço completo do imóvel (Rua, número - Bairro, Cidade)</div>
+          </div>
+          <div class="form-check form-check-inline form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="sellCheck">
+            <label class="form-check-label" for="sellCheck">Disponibilizar para Venda</label>
+          </div>
+          <div class="form-check form-check-inline form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="rentCheck">
+            <label class="form-check-label" for="rentCheck">Disponibilizar para Locação</label>
+          </div>
+          <select id="typeInput" class="form-select" aria-label="Product typeSelect">
+            <option selected>Selecione o Tipo do Imóvel</option>
+            <option value="1">Casa</option>
+            <option value="2">Terreno</option>
+          </select>
+          <br>
+          <div class="flexItToLeft houseForm">
+            <div class="col-md-4">
+              <label for="inputBedrooms" class="form-label">Quantidade de Quartos</label>
+              <input type="number" class="form-control" id="inputBedrooms">
+            </div>
+            <div class="col-md-4">
+              <label for="inputBathrooms" class="form-label">Quantidade de Banheiros</label>
+              <input type="number" class="form-control" id="inputBathrooms">
+            </div>
+          </div>
+          <br>
+          <div class="input-group mb-3 m2Form">
+            <input id="m2Input" type="number" class="form-control" placeholder="Número de metros quadrados"
+              aria-label="Número de metros quadrados" aria-describedby="m2">
+            <span class="input-group-text">m<sup>2</sup></span>
+          </div>
+          <div class="mb-3">
+            <label for="imgInput" class="form-label">Imagens</label>
+            <input type="text" class="form-control" id="imgInput" aria-describedby="imgHelp">
+            <div id="imgHelp" class="form-text">URL das imagens, separadas por vírgulas</div>
+            <div id="imgThumbs"></div>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">R$</span>
+            <input id="priceInput" type="number" class="form-control"
+              placeholder="Valor sem pontos, vírgulas ou casas decimais"
+              aria-label="Valor sem pontos, vírgulas ou casas decimais">
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="featured">
+            <label class="form-check-label" for="flexCheckDefault">
+              Publicar como Destaque
+            </label>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+      </div>
+      <br>
+      <h1 id="logo" class="text-center"><em>Imóveis</em>Manduri<em>_admin</em></h1>
+    </section>
+
+
+    <!-- Footer -->
+    <div id="footer">
+      <!-- Copyright -->
+      <div class="copyright">
+        <ul class="menu">
+          <li>&copy; Imóveis Manduri. All rights reserved</li>
+          <li>Design: <a href="http://html5up.net">Mdj_</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="../assets/js/admin-register.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+    crossorigin="anonymous"></script>
+  <script src="../assets/js/jquery.min.js"></script>
+  <script src="../assets/js/jquery.dropotron.min.js"></script>
+  <script src="../assets/js/browser.min.js"></script>
+  <script src="../assets/js/breakpoints.min.js"></script>
+  <script src="../assets/js/util.js"></script>
+  <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>
