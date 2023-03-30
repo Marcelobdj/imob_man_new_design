@@ -6,7 +6,9 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const path = require('path');
 
-app.use(cors());
+app.use(cors({
+    origin: 'http://206.189.200.26'
+}));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 

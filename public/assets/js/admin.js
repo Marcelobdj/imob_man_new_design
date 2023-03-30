@@ -35,7 +35,7 @@ const createProductLine = (product) => {
 };
 
 const fetchProducts = async () => {
-  const response = await fetch('http://localhost:3001/imob_man/products');
+  const response = await fetch('http://206.189.200.26:3001/imob_man/products');
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }
@@ -89,7 +89,7 @@ const displayDB = async (products) => {
 
 const deleteProduct = async (productId, modal) => {
   try {
-    const response = await fetch(`http://localhost:3001/imob_man/products/${productId}`, {
+    const response = await fetch(`http://206.189.200.26:3001/imob_man/products/${productId}`, {
       method: 'DELETE',
     });
 
@@ -128,7 +128,7 @@ const saveProductChanges = async (productId, modal) => {
   };
 
   try {
-    const response = await fetch(`http://localhost:3001/imob_man/products/${productId}`, {
+    const response = await fetch(`http://206.189.200.26:3001/imob_man/products/${productId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -147,8 +147,6 @@ const saveProductChanges = async (productId, modal) => {
     console.error('Error:', error);
   }
 };
-
-
 
 // Main function
 const displayCRUD = async () => {

@@ -1,7 +1,7 @@
 'use strict';
 
 const fetchUsers = async () => {
-  const response = await fetch('http://localhost:3001/imob_man/users');
+  const response = await fetch('http://206.189.200.26:3001/imob_man/users');
   if (!response.ok) {
     throw new Error('Network response was not ok');
   }
