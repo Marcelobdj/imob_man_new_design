@@ -12,7 +12,7 @@ app.use(cors({
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-const uri = 'mongodb://localhost:27017/imob_man';
+const uri = 'mongodb://206.189.200.26:27017/imob_man';
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
