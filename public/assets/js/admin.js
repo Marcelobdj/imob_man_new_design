@@ -86,7 +86,6 @@ const displayDB = async (products) => {
   });
 };
 
-
 const deleteProduct = async (productId, modal) => {
   try {
     const response = await fetch(`http://206.189.200.26:3001/imob_man/products/${productId}`, {
@@ -122,7 +121,7 @@ const saveProductChanges = async (productId, modal) => {
     bedrooms: document.getElementById('inputBedrooms').value,
     bathrooms: document.getElementById('inputBathrooms').value,
     m2: document.getElementById('m2Input').value,
-    img: document.getElementById('imgInput').value,
+    img: document.getElementById('imgInput').value.split(',').map(url => url.trim()).filter(url => url !== ''),
     price: document.getElementById('priceInput').value,
     featured: document.getElementById('featured').checked
   };
