@@ -61,10 +61,10 @@ const handleButtonClick = (event, products) => {
     clickedButtonId = event.target.id;
     const product = findProductById(products, clickedButtonId);
     if (product) {
-      const queryString = createQueryString(product);
-      window.location.href = `product.html?${queryString}`;
+        const queryString = createQueryString(product);
+        window.location.href = `product.html?${queryString}`;
     } else {
-      console.error('Product not found:', clickedButtonId);
+        console.error('Product not found:', clickedButtonId);
     }
 };
 
@@ -95,7 +95,7 @@ const createProductCard = (product, products) => {
     `;
     const button = card.querySelector('.view-more');
     button.addEventListener('click', (event) => handleButtonClick(event, products));
-  
+
     return card;
 };
 
@@ -185,19 +185,60 @@ const initFeatSlideshow = (featuredProductsList) => {
     }, 5000);
 };
 
+// Search function
+const searchProducts = async () => {
+    const transactionSelect = document.getElementById('transaction');
+    const typeSelect = document.getElementById('type');
+    const searchContainerForm = document.getElementById('searchContainerForm');
+
+    const filterProducts = (products) => {
+        const transactionValue = transactionSelect.value;
+        const typeValue = typeSelect.value;
+
+        return products.filter((product) => {
+            const matchTransaction =
+                (transactionValue === '1' && product.transaction.selling) ||
+                (transactionValue === '2' && product.transaction.renting) ||
+                transactionValue === '';
+
+            const matchType =
+                (typeValue === '1' && product.type.house) ||
+                (typeValue === '2' && product.type.land) ||
+                typeValue === '';
+
+            return matchTransaction && matchType;
+        });
+    };
+
+    const displaySearchResults = (filteredProducts) => {
+        searchContainerForm.innerHTML = '';
+        filteredProducts.forEach((product) => {
+            const card = createProductCard(product);
+            searchContainerForm.appendChild(card);
+        });
+    };
+
+    try {
+        const products = await fetchProducts();
+        const filteredProducts = filterProducts(products);
+        displaySearchResults(filteredProducts);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+};
+
+
+// Login functions
 const closedDoor = document.querySelector('.bi-door-closed');
 const openDoor = document.querySelector('.bi-door-open');
-
-
-// LOGIN
 closedDoor.addEventListener('mouseenter', () => {
-  closedDoor.style.display = 'none';
-  openDoor.style.display = 'block';
+    closedDoor.style.display = 'none';
+    openDoor.style.display = 'block';
 });
 
 openDoor.addEventListener('mouseleave', () => {
-  closedDoor.style.display = 'block';
-  openDoor.style.display = 'none';
+    closedDoor.style.display = 'block';
+    openDoor.style.display = 'none';
 });
 
 
@@ -211,6 +252,15 @@ const displayAllProducts = async () => {
         const featuredProductsList = document.querySelector('.featuredProductsList');
         initAllSlideshow(allProductsList);
         initFeatSlideshow(featuredProductsList);
+        const searchForm = document.querySelector('#searchContainerForm form');
+        const clearButton = document.getElementById('clearButton');
+        searchForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            searchProducts();
+        });
+        clearButton.addEventListener('click', () => {
+            searchContainerForm.innerHTML = '';
+        });
     } catch (error) {
         console.error('Error:', error);
     }
